@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Author, Book, Category, Review, Slider
+from .models import Author, Book, Category, Slider
 
 
 class AddCategory(admin.ModelAdmin):
