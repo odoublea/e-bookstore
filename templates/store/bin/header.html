@@ -1,0 +1,159 @@
+{% load static %}
+<div class="header-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div class="col-sm-3">
+          <div class="pull-left">
+            <a class="navbar-brand" href="#"><img src="{% static 'css/icons/Alluvium_logo.svg' %}"  width="30" height="30" class="d-inline-block align-top" alt="store logo"> Alluvim Bookstore</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-sm-5">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form method="GET">
+                <div class="input-group search_box">
+                  <input class="form-control" type="search" placeholder="Search Book" aria-label="Search" name="q" value="{{search}}">
+                  <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="pull-right">
+            <ul class="navbar-nav">
+              {% if request.user.is_authenticated %}
+              <li class="dropdown profile">
+                <a href="#">{{ request.user.username }}</a>
+                <ul role="menu" class="sub-menu">
+                  <li>
+                    <a href="#"><i class="fa fa-shopping-cart"></i> My order</a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-sign-out"></i> Sign Out</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="cart">
+                <a href="#">Cart <i class="fa fa-angle-left"></i>
+                  <span class="totalcart" id="gettotalcart">
+                    {{ cart|length }}
+                  </span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+              {% else %}
+              <li class="profile">
+                <a href="#">Sign In</a>
+              </li>
+              <li class="cart">
+                <a href="#">Cart <i class="fa fa-angle-left"></i>
+                  <span class="totalcart" id="gettotalcart">
+                    {{ cart|length }}
+                  </span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </nav>
+</div>
+
+
+
+
+
+
+{% comment %} <nav class="header-top">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="pull-left">
+            <a href="{% url 'store:index' %}"><img src="{% static 'images/logo/logo.png' %}" alt="store logo"></a>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <form action="{% url 'search:search' %}" method="GET">
+            <div class="input-group search_box">
+              <input type="text" class="form-control" placeholder="Search Book" name="q" value="{{search}}">
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-4">
+          <div class="pull-right">
+            <ul class="navbar-nav">
+              {% if request.user.is_authenticated %}
+              <li class="dropdown profile">
+                <a href="#">{{ request.user.username }}</a>
+                <ul role="menu" class="sub-menu">
+                  <li>
+                    <a href="{% url 'order:order_list' %}"><i class="fa fa-shopping-cart"></i> My order</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'store:signout' %}"><i class="fa fa-sign-out"></i> Sign Out</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="cart">
+                <a href="{% url 'cart:cart_details' %}">Cart <i class="fa fa-angle-left"></i>
+                  <span class="totalcart" id="gettotalcart">
+                    {{ cart|length }}
+                  </span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+              {% else %}
+              <li class="profile">
+                <a href="{% url 'store:signin' %}">Sign In</a>
+              </li>
+              <li class="cart">
+                <a href="{% url 'cart:cart_details' %}">Cart <i class="fa fa-angle-left"></i>
+                  <span class="totalcart" id="gettotalcart">
+                    {{ cart|length }}
+                  </span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="header-bottom">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="responsive categorymenu">
+					{% for p in cat %}
+					<div class="cat-wrapper">
+						<div class="text-center">
+							<a href="{% url 'store:category' id=p.id %}"><img src="{{ p.icon.url }}"/></a>
+							<a href="{% url 'store:category' id=p.id %}">{{ p.name }}</a>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</nav> {% endcomment %}
