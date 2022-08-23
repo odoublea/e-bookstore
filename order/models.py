@@ -1,9 +1,11 @@
 from django.db import models
 from store.models import Book
 from django.contrib.auth.models import User
+import uuid
 
 
 class Order(models.Model):
+    id=models.CharField(primary_key=True,default=uuid.uuid4, editable=False, max_length=36)
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     email = models.EmailField()

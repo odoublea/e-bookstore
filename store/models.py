@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import uuid
 
 
 class Category(models.Model):
@@ -14,6 +15,7 @@ class Category(models.Model):
 
 
 class Author(models.Model):
+    id=models.CharField(primary_key=True,default=uuid.uuid4, editable=False, max_length=36)
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=150, unique=True, db_index=True)
     bio = models.TextField()
