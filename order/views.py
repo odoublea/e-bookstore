@@ -48,7 +48,7 @@ def order_create(request):
 
 def order_list(request):
     my_order = Order.objects.filter(
-        customer_id=request.user.id).order_by('-created')
+    customer_id=request.user.id).order_by('-created')
     paginator = Paginator(my_order, 5)
     page = request.GET.get('page')
     myorder = paginator.get_page(page)
