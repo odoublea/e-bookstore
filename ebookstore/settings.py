@@ -139,7 +139,8 @@ STATICFILES_DIRS = [STATIC_URL,]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = '/media/'
+# Media files (Images, pdfs)
+MEDIA_URL = '/files/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'files/')
 
 CART_SESSION_ID = 'cart'
