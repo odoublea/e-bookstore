@@ -19,10 +19,10 @@ admin.site.register(Author, AddAuthor)
 
 
 class AddBook(admin.ModelAdmin):
-    list_display = ['name', 'price', 'stock', 'status', 'created', 'updated']
+    list_display = ['title', 'price', 'stock', 'status', 'created', 'updated']
     list_filter = ['status', 'created', 'updated']
     list_editable = ['price', 'stock', 'status']
-    prepopulated_fields = {'slug': ('name',)}
+    prepopulated_fields = {'slug': ('title',)}
 
 
 admin.site.register(Book, AddBook)
