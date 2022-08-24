@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store',
     'account',
-    'basket',
+    'cart',
     'orders',
     'search',
     'payment',
@@ -57,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "kolo.middleware.KoloMiddleware",
 ]
 
 ROOT_URLCONF = 'ebookstore.urls'
@@ -72,8 +73,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'store.context_processors.sidebar',
-                'store.context_processors.cart'
+                # 'store.context_processors.sidebar',
+                # 'store.context_processors.cart'
             ],
         },
     },
