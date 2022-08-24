@@ -1,0 +1,4 @@
+django-cors-headers
+django-crispy-forms
+django-bootstrap
+xhtml2pdf
